@@ -3,7 +3,7 @@
 #define BASE 26
 #define BASEL 26L
 
-#define N 20000
+#define N 50000
 #define LEN (26L * N) / 3 + 1
 
 unsigned j, predigit, nines, a[LEN], digit;
@@ -43,7 +43,7 @@ int main() {
             predigit = (unsigned)k;
 	    }
 
-        printf("%d%%\n", (N-j)*100/N);
+        if (j % 500 == 0) printf("%d%%\n", (N-j)*100/N);
     }
     
     fclose(fptr);
