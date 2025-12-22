@@ -1,10 +1,8 @@
 #include <stdio.h>
 
+#define N 100000
 #define BASE 26
-#define BASEL 26L
-
-#define N 50000
-#define LEN (26L * N) / 3 + 1
+#define LEN (BASE * N) / 3 + 1
 
 unsigned j, predigit, nines, a[LEN], digit;
 long x, q, k, len, i;
@@ -22,7 +20,7 @@ int main() {
 	    k = LEN + LEN - 1;
 
 	    for (i = LEN; i; i--) {
-            x = (j == N ? 2*BASE : BASEL*a[i-1]) + q*i;
+            x = (j == N ? 2*BASE : BASE*a[i-1]) + q*i;
             q = x / k;
             a[i-1] = (unsigned)(x-q*k);
             k -= 2;
