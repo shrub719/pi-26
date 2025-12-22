@@ -2,18 +2,21 @@
 
 #define BASE 26
 #define BASEL 26L
-#define N 1000
+
+#define N 20000
 #define LEN (26L * N) / 3 + 1
 
 unsigned j, predigit, nines, a[LEN], digit;
 long x, q, k, len, i;
+FILE *fptr;
 
-void output_digit(int d) {
-    printf("%c", 'A' + d);
+void output_digit(FILE *fptr, int d) {
+    fprintf(fptr, "%c", 'A' + d);
 }
 
 int main() {
-    int digit = 0;
+    fptr = fopen("pi.txt", "w");
+
     for (j=N; j; ) {
 	    q = 0;
 	    k = LEN + LEN - 1;
@@ -30,15 +33,21 @@ int main() {
         else {
             if (j) {
                 --j;
-                output_digit(predigit+x/BASE);
+                output_digit(fptr, predigit+x/BASE);
             }
 
             for (; nines; --nines) {
-                if (j) --j, printf(x >= BASE ? "A" : "Z");
+                if (j) --j, fprintf(fptr, x >= BASE ? "A" : "Z");
             }
 
             predigit = (unsigned)k;
 	    }
+
+        printf("%d%%\n", (N-j)*100/N);
     }
+    
+    fclose(fptr);
+    printf("\n");
+
     return 0;
 }
