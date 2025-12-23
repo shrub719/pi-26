@@ -2,7 +2,7 @@
 
 A small program I used to calculate an exorbitant amount of digits of pi in base 26 for a cute puzzle.
 
-I've uploaded some outputs of the program in `/pi`, in files named after the number of digits they contain.
+`/pi` contains the actual puzzle in the PDF I used to present it. I've uploaded some outputs of the program too, in files named after the number of digits they contain.
 
 ## Credits
 
